@@ -55,10 +55,10 @@ $(".btn").click(function () {
     var userChosenColor = $(this).attr("id");
     userChosenPattern.push(userChosenColor);
 
-    playSound(userChosenColor);
-    animatePress(userChosenColor);
+playSound(userChosenColor);
+animatePress(userChosenColor);
 
-    checkAnswer(userChosenPattern.length - 1);
+checkAnswer(userChosenPattern.length - 1);
 });
 Checking the Answer: The checkAnswer function compares the user's input with the game pattern. If the user gets it right, the game continues to the next level. If not, the game ends.
 
@@ -88,11 +88,11 @@ function nextSequence() {
     level++;
     $("#level-title").text("Level " + level);
 
-    var randomNumber = Math.floor(Math.random() * 4);
+var randomNumber = Math.floor(Math.random() * 4);
     var randomChosenColor = buttonColors[randomNumber];
     gamePattern.push(randomChosenColor);
 
-    $("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
+$("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
     playSound(randomChosenColor);
 }
 Playing Sounds and Animations: The playSound and animatePress functions handle playing the sound for each button and animating the button press.
