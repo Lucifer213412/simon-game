@@ -41,17 +41,9 @@ var userChosenPattern = [];
 var started = false;
 var level = 0;
 Starting the Game: The game starts when any key is pressed. This is detected using the keydown event.
-
-$(document).keydown(function () {
-    if (!started) {
-        $("#level-title").text("Level " + level);
-        nextSequence();
-        started = true;
-    }
-});
 User Clicks: When a button is clicked, the user's chosen color is stored and checked against the game pattern.
 
-$(".btn").click(function () {
+(".btn").click(function () {
     var userChosenColor = $(this).attr("id");
     userChosenPattern.push(userChosenColor);
 
@@ -72,11 +64,11 @@ function checkAnswer(currentLevel) {
         }
     } else {
         playSound("wrong");
-        $("body").addClass("game-over");
+        ("body").addClass("game-over");
         setTimeout(function () {
             $("body").removeClass("game-over");
         }, 300);
-        $("#level-title").text("Game Over, Press Any Key to Restart");
+        ("#level-title").text("Game Over, Press Any Key to Restart");
         startOver();
     }
 }
@@ -86,13 +78,13 @@ Generating the Next Sequence: The nextSequence function generates a new color in
 function nextSequence() {
     userChosenPattern = [];
     level++;
-    $("#level-title").text("Level " + level);
+    ("#level-title").text("Level " + level);
 
 var randomNumber = Math.floor(Math.random() * 4);
     var randomChosenColor = buttonColors[randomNumber];
     gamePattern.push(randomChosenColor);
 
-$("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
+("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
     playSound(randomChosenColor);
 }
 Playing Sounds and Animations: The playSound and animatePress functions handle playing the sound for each button and animating the button press.
@@ -104,9 +96,9 @@ function playSound(name) {
 }
 
 function animatePress(currentColor) {
-    $("#" + currentColor).addClass("pressed");
+    ("#" + currentColor).addClass("pressed");
     setTimeout(function () {
-        $("#" + currentColor).removeClass("pressed");
+        ("#" + currentColor).removeClass("pressed");
     }, 100);
 }
 Restarting the Game: The startOver function resets the game variables to their initial states.
